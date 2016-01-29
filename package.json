@@ -1,0 +1,16 @@
+{
+  "name": "lambda-calc",
+  "version": "0.0.1",
+  "description": "A tiny implementation of the lambda calculus",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Mock <brian@mockbrian.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "parsimmon": "^0.7.0"
+  }
+}

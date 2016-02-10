@@ -2,61 +2,23 @@
 
 const chalk = require('chalk');
 const util = require('util');
+const fs = require('fs');
 const parse = require('./parse').parse;
 const evaluate = require('./evaluate').evaluate;
 const Scope = require('./scope');
 
 const opts = {depth: null, colors: true}
-
 function show(x) {
   console.log(util.inspect(x, opts));
 }
 
-// const code = '(:x x) two';
-
-// const code = `
-// (:k :const const)
-// three
-// (:k :x k)
-// one
-// two
-// `;
-
-const code = `
-(
-  :pair
-  :first
-  :second
-
-  :unchurch
-  :succ
-  :+
-  :*
-  :^
-
-  :three
-  :two
-
-  unchurch
-    (+
-      (* two two)
-      (^ three (succ two))
-    )
-)
-
-(:a :b :f f a b)
-(:p p (:x :y x))
-(:p p (:x :y y))
-
-(:n n JS-Succ JS-Zero)
-(:n :f :x f (n f x))
-(:a :b :f :x a f (b f x))
-(:a :b :f a (b f))
-(:a :b a b)
-
-(:f :x f (f (f x)))
-(:f :x f (f x))
-`;
+const argv = process.argv.slice(2);
+if (argv.length !== 1) {
+  console.error('please give a filename');
+  process.exit(1);
+}
+const filename = argv[0];
+const code = fs.readFileSync(filename, 'utf-8');
 
 const globals = {
   'JS-Zero': 0,

@@ -1,0 +1,33 @@
+(
+  :pair
+  :first
+  :second
+
+  :unchurch
+  :succ
+  :+
+  :*
+  :^
+
+  :three
+  :two
+
+  unchurch
+    (+
+      (* two two)
+      (^ three (succ two))
+    )
+)
+
+(:a :b :f f a b)
+(:p p (:x :y x))
+(:p p (:x :y y))
+
+(:n n JS-Succ JS-Zero)
+(:n :f :x f (n f x))
+(:a :b :f :x a f (b f x))
+(:a :b :f a (b f))
+(:a :b a b)
+
+(:f :x f (f (f x)))
+(:f :x f (f x))
